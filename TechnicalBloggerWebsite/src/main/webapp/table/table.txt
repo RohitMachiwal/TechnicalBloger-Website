@@ -1,0 +1,10 @@
+create database techblog;
+
+use techblog;
+
+CREATE TABLE user (id int NOT NULL AUTO_INCREMENT,name varchar(100) NOT NULL, email varchar(100) UNIQUE NOT NULL,password varchar(100) NOT NULL,gender varchar(30), about varchar(500),profile varchar(100) default 'default.png',PRIMARY KEY (id));
+
+CREATE TABLE categories (cid int NOT NULL AUTO_INCREMENT,name varchar(100) NOT NULL,description varchar(200),PRIMARY KEY (cid));
+
+
+CREATE TABLE posts (pid int NOT NULL AUTO_INCREMENT,pTitle varchar(100) NOT NULL,pContent longtext,pCode longtext,pPic varchar(100),cid int,id int,PRIMARY KEY (pid),FOREIGN KEY (cid) REFERENCES categories(cid),FOREIGN KEY (id) REFERENCES user(id));
